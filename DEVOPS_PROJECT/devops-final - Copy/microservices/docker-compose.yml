@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  postgres-db:
+    image: postgres:13
+    container_name: postgres-db
+    environment:
+      POSTGRES_DB: chatbd
+      POSTGRES_USER: biswa
+      POSTGRES_PASSWORD: biswa
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  chat-query:
+    image: chat-query:latest
+    container_name: chat-query
+    # depends_on:
+    #   - postgres-db
+    # environment:
+    #   DATABASE_HOST: postgres-db
+    #   DATABASE_PORT: 5432
+    #   DATABASE_NAME: chatdb
+    #   DATABASE_USER: biswa
+    #   DATABASE_PASSWORD: biswa
+    ports:
+      - "8081:8081"
+
+  chat-operation:
+    image: chat-operation:latest
+    container_name: chat-operation
+    depends_on:
+      - postgres-db
+    environment:
+      DATABASE_HOST: postgres-db
+      DATABASE_PORT: 5432
+      DATABASE_NAME: chatdb
+      DATABASE_USER: biswa
+      DATABASE_PASSWORD: biswa
+    ports:
+      - "8082:8082"
+
+volumes:
+  postgres-data:

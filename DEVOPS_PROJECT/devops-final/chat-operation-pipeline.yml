@@ -1,0 +1,53 @@
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - microservices/chat-operation/*
+
+resources:
+- repo: self
+
+variables:
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: '52947406-329c-4b2c-835e-4a9d728ba76f'
+  imageRepository: 'devopsfinal-chatoperation'
+  containerRegistry: 'myacrtest12345.azurecr.io'
+  dockerfilePath: '$(Build.SourcesDirectory)/microservices/chat-operation/Dockerfile'
+  tag: 'latest'
+
+pool:
+  name: 'SELF_HOSTED_AGENT'
+
+stages:
+- stage: Build
+  displayName: Build
+  jobs:
+  - job: Build
+    displayName: Build
+    steps:
+    - task: Docker@2
+      displayName: Build and push an image to container registry
+      inputs:
+        containerRegistry: '$(dockerRegistryServiceConnection)'
+        repository: '$(imageRepository)'
+        command: 'build'
+        Dockerfile: '**/Dockerfile'
+        tags: '$(tag)'
+
+
+- stage: Push
+  displayName: push stage
+  jobs:
+  - job: Push
+    displayName: Push
+    steps:
+    - task: Docker@2
+      displayName: Build and push an image to container registry
+      inputs:
+        containerRegistry: '$(dockerRegistryServiceConnection)'
+        repository: '$(imageRepository)'
+        command: 'push'
+        tags: '$(tag)'
+

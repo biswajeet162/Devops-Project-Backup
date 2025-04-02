@@ -1,0 +1,46 @@
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   labels:
+#     app: chat-query
+#   name: chat-query
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: chat-query
+#   template:
+#     metadata:
+#       labels:
+#         app: chat-query
+#     spec:
+#       containers:
+#       - image: acrtest123456756757.azurecr.io/devopsfinal-chatquery:latest
+#         name: chat-query
+#         ports:
+#         - containerPort: 80
+#      x     name: http
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: chat-query
+  name: chat-query
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chat-query
+  template:
+    metadata:
+      labels:
+        app: chat-query
+    spec:
+      containers:
+      - image: myacrtest12345.azurecr.io/devopsfinal-chatquery:latest
+        name: chat-query
+        ports:
+        - containerPort: 8080
+          name: chat-query

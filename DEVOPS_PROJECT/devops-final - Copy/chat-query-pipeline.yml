@@ -1,0 +1,69 @@
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - microservices/chat-query/*
+
+resources:
+- repo: self
+
+variables:
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: '52947406-329c-4b2c-835e-4a9d728ba76f'
+  imageRepository: 'devopsfinal-chatquery'
+  containerRegistry: 'myacrtest12345.azurecr.io'
+  dockerfilePath: '$(Build.SourcesDirectory)/microservices/chat-query/Dockerfile'
+  tag: 'latest'
+
+pool:
+  name: 'SELF_HOSTED_AGENT'
+
+stages:
+- stage: Build
+  displayName: Build
+  jobs:
+  - job: Build
+    displayName: Build
+    steps:
+    - task: Docker@2
+      displayName: Build and push an image to container registry
+      inputs:
+        containerRegistry: '$(dockerRegistryServiceConnection)'
+        repository: '$(imageRepository)'
+        command: 'build'
+        Dockerfile: '**/Dockerfile'
+        tags: '$(tag)'
+
+
+- stage: Push
+  displayName: push stage
+  jobs:
+  - job: Push
+    displayName: Push
+    steps:
+    - task: Docker@2
+      displayName: Build and push an image to container registry
+      inputs:
+        containerRegistry: '$(dockerRegistryServiceConnection)'
+        repository: '$(imageRepository)'
+        command: 'push'
+        tags: '$(tag)'
+
+
+- stage: Deploy
+  displayName: Deploy stage
+  jobs:
+  - job: Deploy
+    displayName: Deploy
+    steps:
+    - task: KubernetesManifest@1
+      inputs:
+        action: 'deploy'
+        connectionType: 'azureResourceManager'
+        azureSubscriptionConnection: 'npstackro-1676008966783(c50d4946-8f7f-487c-bc15-fcc1096ec82e)'
+        azureResourceGroup: 'kubernates-rg'
+        kubernetesCluster: 'myakscluster123'
+        namespace: 'mychats1'
+        manifests: 'microservices/k8s-specifications'

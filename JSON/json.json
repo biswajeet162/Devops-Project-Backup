@@ -1,0 +1,230 @@
+{
+    "error": {
+      "code": "InvalidTemplateDeployment",
+      "details": [
+        {
+          "code": "RequestDisallowedByPolicy",
+          "target": "biswa-cluster",
+          "message": "Resource 'biswa-cluster' was disallowed by policy. Policy identifiers: '[{\"policyAssignment\":{\"name\":\"AzureB2C\",\"id\":\"/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policyAssignments/f2917286-cfd6-4658-8603-2d6312269ad5\"},\"policyDefinition\":{\"name\":\"AzureB2C_AllowAKSStandardDS1v2D2sv3F4sv2\",\"id\":\"/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policyDefinitions/AzureB2C_AllowAKSStandardDS1v2D2sv3F4sv2\"},\"policySetDefinition\":{\"name\":\"AzureB2C\",\"id\":\"/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policySetDefinitions/AzureB2C\"}}]'.",
+          "additionalInfo": [
+            {
+              "type": "PolicyViolation",
+              "info": {
+                "evaluationDetails": {
+                  "evaluatedExpressions": [
+                    {
+                      "result": "True",
+                      "expressionKind": "Field",
+                      "expression": "type",
+                      "path": "type",
+                      "expressionValue": "microsoft.containerservice/managedclusters",
+                      "targetValue": "Microsoft.ContainerService/managedClusters",
+                      "operator": "Equals"
+                    },
+                    {
+                      "result": "False",
+                      "expressionKind": "Field",
+                      "expression": "Microsoft.ContainerService/managedClusters/agentPoolProfiles[*].vmSize",
+                      "path": "properties.agentPoolProfiles[*].vmSize",
+                      "expressionValue": [
+                        "Standard_D8ds_v5",
+                        "Standard_D8as_v4"
+                      ],
+                      "targetValue": [
+                        "Standard_DS1_v2",
+                        "Standard_D2s_v3"
+                      ],
+                      "operator": "In"
+                    }
+                  ]
+                },
+                "policyDefinitionId": "/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policyDefinitions/AzureB2C_AllowAKSStandardDS1v2D2sv3F4sv2",
+                "policySetDefinitionId": "/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policySetDefinitions/AzureB2C",
+                "policyDefinitionReferenceId": "6548005666744219103",
+                "policySetDefinitionName": "AzureB2C",
+                "policySetDefinitionDisplayName": "AzureB2C",
+                "policyDefinitionName": "AzureB2C_AllowAKSStandardDS1v2D2sv3F4sv2",
+                "policyDefinitionDisplayName": "AzureB2C_AllowAKSStandardDS1v2D2sv3F4sv2",
+                "policyDefinitionEffect": "deny",
+                "policyAssignmentId": "/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policyAssignments/f2917286-cfd6-4658-8603-2d6312269ad5",
+                "policyAssignmentName": "f2917286-cfd6-4658-8603-2d6312269ad5",
+                "policyAssignmentDisplayName": "AzureB2C",
+                "policyAssignmentScope": "/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e",
+                "policyAssignmentParameters": {},
+                "policyExemptionIds": []
+              }
+            }
+          ]
+        },
+        {
+          "code": "RequestDisallowedByPolicy",
+          "target": "biswa-cluster",
+          "message": "Resource 'biswa-cluster' was disallowed by policy. Policy identifiers: '[{\"policyAssignment\":{\"name\":\"AzureB2C\",\"id\":\"/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policyAssignments/f2917286-cfd6-4658-8603-2d6312269ad5\"},\"policyDefinition\":{\"name\":\"AzureB2C_AllowAKSStandardDS1v2D2sv3F4sv2\",\"id\":\"/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policyDefinitions/AzureB2C_AllowAKSStandardDS1v2D2sv3F4sv2\"},\"policySetDefinition\":{\"name\":\"AzureB2C\",\"id\":\"/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policySetDefinitions/AzureB2C\"}}]'.",
+          "additionalInfo": [
+            {
+              "type": "PolicyViolation",
+              "info": {
+                "evaluationDetails": {
+                  "evaluatedExpressions": [
+                    {
+                      "result": "True",
+                      "expressionKind": "Field",
+                      "expression": "type",
+                      "path": "type",
+                      "expressionValue": "Microsoft.ContainerService/managedClusters",
+                      "targetValue": "Microsoft.ContainerService/managedClusters",
+                      "operator": "Equals"
+                    },
+                    {
+                      "result": "False",
+                      "expressionKind": "Field",
+                      "expression": "Microsoft.ContainerService/managedClusters/agentPoolProfiles[*].vmSize",
+                      "path": "properties.agentPoolProfiles[*].vmSize",
+                      "expressionValue": [
+                        "Standard_D8ds_v5",
+                        "Standard_D8as_v4"
+                      ],
+                      "targetValue": [
+                        "Standard_DS1_v2",
+                        "Standard_D2s_v3"
+                      ],
+                      "operator": "In"
+                    }
+                  ]
+                },
+                "policyDefinitionId": "/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policyDefinitions/AzureB2C_AllowAKSStandardDS1v2D2sv3F4sv2",
+                "policySetDefinitionId": "/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policySetDefinitions/AzureB2C",
+                "policyDefinitionReferenceId": "6548005666744219103",
+                "policySetDefinitionName": "AzureB2C",
+                "policySetDefinitionDisplayName": "AzureB2C",
+                "policyDefinitionName": "AzureB2C_AllowAKSStandardDS1v2D2sv3F4sv2",
+                "policyDefinitionDisplayName": "AzureB2C_AllowAKSStandardDS1v2D2sv3F4sv2",
+                "policyDefinitionEffect": "deny",
+                "policyAssignmentId": "/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policyAssignments/f2917286-cfd6-4658-8603-2d6312269ad5",
+                "policyAssignmentName": "f2917286-cfd6-4658-8603-2d6312269ad5",
+                "policyAssignmentDisplayName": "AzureB2C",
+                "policyAssignmentScope": "/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e",
+                "policyAssignmentParameters": {},
+                "policyExemptionIds": []
+              }
+            }
+          ]
+        }
+      ],
+      "message": "The template deployment failed with multiple errors. Please see details for more information."
+    },
+    "details": {
+      "code": "InvalidTemplateDeployment",
+      "message": "The template deployment failed with multiple errors. Please see details for more information.",
+      "details": [
+        {
+          "code": "RequestDisallowedByPolicy",
+          "target": "biswa-cluster",
+          "message": "Resource 'biswa-cluster' was disallowed by policy. Policy identifiers: '[{\"policyAssignment\":{\"name\":\"AzureB2C\",\"id\":\"/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policyAssignments/f2917286-cfd6-4658-8603-2d6312269ad5\"},\"policyDefinition\":{\"name\":\"AzureB2C_AllowAKSStandardDS1v2D2sv3F4sv2\",\"id\":\"/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policyDefinitions/AzureB2C_AllowAKSStandardDS1v2D2sv3F4sv2\"},\"policySetDefinition\":{\"name\":\"AzureB2C\",\"id\":\"/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policySetDefinitions/AzureB2C\"}}]'.",
+          "additionalInfo": [
+            {
+              "type": "PolicyViolation",
+              "info": {
+                "evaluationDetails": {
+                  "evaluatedExpressions": [
+                    {
+                      "result": "True",
+                      "expressionKind": "Field",
+                      "expression": "type",
+                      "path": "type",
+                      "expressionValue": "microsoft.containerservice/managedclusters",
+                      "targetValue": "Microsoft.ContainerService/managedClusters",
+                      "operator": "Equals"
+                    },
+                    {
+                      "result": "False",
+                      "expressionKind": "Field",
+                      "expression": "Microsoft.ContainerService/managedClusters/agentPoolProfiles[*].vmSize",
+                      "path": "properties.agentPoolProfiles[*].vmSize",
+                      "expressionValue": [
+                        "Standard_D8ds_v5",
+                        "Standard_D8as_v4"
+                      ],
+                      "targetValue": [
+                        "Standard_DS1_v2",
+                        "Standard_D2s_v3"
+                      ],
+                      "operator": "In"
+                    }
+                  ]
+                },
+                "policyDefinitionId": "/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policyDefinitions/AzureB2C_AllowAKSStandardDS1v2D2sv3F4sv2",
+                "policySetDefinitionId": "/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policySetDefinitions/AzureB2C",
+                "policyDefinitionReferenceId": "6548005666744219103",
+                "policySetDefinitionName": "AzureB2C",
+                "policySetDefinitionDisplayName": "AzureB2C",
+                "policyDefinitionName": "AzureB2C_AllowAKSStandardDS1v2D2sv3F4sv2",
+                "policyDefinitionDisplayName": "AzureB2C_AllowAKSStandardDS1v2D2sv3F4sv2",
+                "policyDefinitionEffect": "deny",
+                "policyAssignmentId": "/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policyAssignments/f2917286-cfd6-4658-8603-2d6312269ad5",
+                "policyAssignmentName": "f2917286-cfd6-4658-8603-2d6312269ad5",
+                "policyAssignmentDisplayName": "AzureB2C",
+                "policyAssignmentScope": "/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e",
+                "policyAssignmentParameters": {},
+                "policyExemptionIds": []
+              }
+            }
+          ]
+        },
+        {
+          "code": "RequestDisallowedByPolicy",
+          "target": "biswa-cluster",
+          "message": "Resource 'biswa-cluster' was disallowed by policy. Policy identifiers: '[{\"policyAssignment\":{\"name\":\"AzureB2C\",\"id\":\"/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policyAssignments/f2917286-cfd6-4658-8603-2d6312269ad5\"},\"policyDefinition\":{\"name\":\"AzureB2C_AllowAKSStandardDS1v2D2sv3F4sv2\",\"id\":\"/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policyDefinitions/AzureB2C_AllowAKSStandardDS1v2D2sv3F4sv2\"},\"policySetDefinition\":{\"name\":\"AzureB2C\",\"id\":\"/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policySetDefinitions/AzureB2C\"}}]'.",
+          "additionalInfo": [
+            {
+              "type": "PolicyViolation",
+              "info": {
+                "evaluationDetails": {
+                  "evaluatedExpressions": [
+                    {
+                      "result": "True",
+                      "expressionKind": "Field",
+                      "expression": "type",
+                      "path": "type",
+                      "expressionValue": "Microsoft.ContainerService/managedClusters",
+                      "targetValue": "Microsoft.ContainerService/managedClusters",
+                      "operator": "Equals"
+                    },
+                    {
+                      "result": "False",
+                      "expressionKind": "Field",
+                      "expression": "Microsoft.ContainerService/managedClusters/agentPoolProfiles[*].vmSize",
+                      "path": "properties.agentPoolProfiles[*].vmSize",
+                      "expressionValue": [
+                        "Standard_D8ds_v5",
+                        "Standard_D8as_v4"
+                      ],
+                      "targetValue": [
+                        "Standard_DS1_v2",
+                        "Standard_D2s_v3"
+                      ],
+                      "operator": "In"
+                    }
+                  ]
+                },
+                "policyDefinitionId": "/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policyDefinitions/AzureB2C_AllowAKSStandardDS1v2D2sv3F4sv2",
+                "policySetDefinitionId": "/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policySetDefinitions/AzureB2C",
+                "policyDefinitionReferenceId": "6548005666744219103",
+                "policySetDefinitionName": "AzureB2C",
+                "policySetDefinitionDisplayName": "AzureB2C",
+                "policyDefinitionName": "AzureB2C_AllowAKSStandardDS1v2D2sv3F4sv2",
+                "policyDefinitionDisplayName": "AzureB2C_AllowAKSStandardDS1v2D2sv3F4sv2",
+                "policyDefinitionEffect": "deny",
+                "policyAssignmentId": "/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e/providers/Microsoft.Authorization/policyAssignments/f2917286-cfd6-4658-8603-2d6312269ad5",
+                "policyAssignmentName": "f2917286-cfd6-4658-8603-2d6312269ad5",
+                "policyAssignmentDisplayName": "AzureB2C",
+                "policyAssignmentScope": "/subscriptions/c50d4946-8f7f-487c-bc15-fcc1096ec82e",
+                "policyAssignmentParameters": {},
+                "policyExemptionIds": []
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }

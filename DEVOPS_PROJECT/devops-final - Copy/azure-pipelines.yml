@@ -1,0 +1,76 @@
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - microservices/chat-query/*
+
+resources:
+- repo: self
+
+variables:
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: '5fd97325-bc37-4df7-831d-a1aa7048d356'
+  imageRepository: 'devopsfinal'
+  containerRegistry: 'acrregistry123.azurecr.io'
+  dockerfilePath: '$(Build.SourcesDirectory)/microservices/chat-query/Dockerfile'
+  tag: '$(Build.BuildId)'
+
+  sonar_projet_key: 'devops-final_chat-query'
+  sonar_token: '73febf73bcaf2d2697f57d4fe150e5837f64f2a2'
+
+pool:
+  name: 'SELF_HOSTED_AGENT'
+
+stages:
+# - stage: Build
+#   displayName: Build
+#   jobs:
+#   - job: Build
+#     displayName: Build
+#     steps:
+#     - task: Docker@2
+#       displayName: Build and push an image to container registry
+#       inputs:
+#         containerRegistry: '$(dockerRegistryServiceConnection)'
+#         repository: '$(imageRepository)'
+#         command: 'build'
+#         Dockerfile: '**/Dockerfile'
+#         tags: '$(tag)'
+
+
+# - stage: Push
+#   displayName: push stage
+#   jobs:
+#   - job: Push
+#     displayName: Push
+#     steps:
+#     - task: Docker@2
+#       displayName: Build and push an image to container registry
+#       inputs:
+#         containerRegistry: '$(dockerRegistryServiceConnection)'
+#         repository: '$(imageRepository)'
+#         command: 'push'
+#         tags: '$(tag)'
+
+- stage: SonarCloud_SAST_Scan
+  jobs:
+  - template: sonar-sast-scan.yml
+    parameters:
+      sonar_token: '$(sonar_token)'
+      sonar_projet_key: '$(sonar_projet_key)'
+
+# - stage: UpdateK8sFile
+#   displayName: 'Update Kubernetes Deployment File'
+#   dependsOn: Push
+#   jobs:
+#   - job: UpdateK8sFile
+#     displayName: 'Update Deployment File'
+#     steps:
+#     - checkout: self
+#     - script: |
+#         echo "Adding random comment to namespace.yml..."
+#         RANDOM_COMMENT="Random comment $(date +%s)"
+#         echo "# ${RANDOM_COMMENT}" >> microservices/k8s-specification/mytest.yml
+#       displayName: 'Add Random Comment to namespace.yml'

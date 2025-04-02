@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: chat-operation
+  name: chat-operation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chat-operation
+  template:
+    metadata:
+      labels:
+        app: chat-operation
+    spec:
+      imagePullSecrets:
+      - name: acrsecret
+      containers:
+      - image: acrdevopsfinal.azurecr.io/devopsfinal-chatoperation:108
+        name: chat-operation
+        ports:
+        - containerPort: 80
+          name: http
+        env:
+        - name: DATABASE_HOST
+          value: postgres-db
+        - name: DATABASE_PORT
+          value: "5432"
+        - name: DATABASE_NAME
+          value: chatdb
+        - name: DATABASE_USER
+          value: biswa
+        - name: DATABASE_PASSWORD
+          value: biswa

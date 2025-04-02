@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: chat-query
+  name: chat-query
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chat-query
+  template:
+    metadata:
+      labels:
+        app: chat-query
+    spec:
+      imagePullSecrets:
+      - name: acrsecret
+      containers:
+      - image: acrdevopsfinal.azurecr.io/devopsfinal-chatquery:110
+        name: chat-query
+        ports:
+        - containerPort: 80
+          name: http

@@ -1,0 +1,10 @@
+parameters:
+  sonar_token: ''
+
+jobs:
+- job: Sonar_SAST_Scan_Job
+  container: maven:3.8.1-openjdk-17-slim
+  steps:
+  - script: |
+      cd microservices/chat-query mvn verify package sonar:sonar -Dsonar.host.url="https://sonarcloud.io/" -Dsonar.organization=devops-final -Dsonar.projectKey=$(sonar_projet_key) -Dsonar.token=$(sonar_token)
+    displayName: "Integrate SAST using SonarCloud to populate code coverage and secure pipeline variable in Azure DevOps DevSecOps Pipeline"
